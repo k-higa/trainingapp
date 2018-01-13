@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: base_header"/>
+
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header th:replace="layout :: header"></header>
+
+    <!-- Menu -->
+    <nav id="menu" th:replace="layout::nav_menu"/>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+
+            <!-- Text -->
+            <form th:action="@{/sign_out/confirm}" th:method="POST">
+                <section>
+                    <h2>ログアウト</h2>
+                    <div class="row uniform">
+                        <div class="12u$">
+                            <ul class="actions">
+                                <li><input type="submit" value="ログアウト" class="special"/></li>
+                                <li><input type="button" value="戻る"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+
+    <footer th:replace="layout::footer"/>
+</div>
+
+<!-- Scripts -->
+<script th:replace="layout::common_js"></script>
+</body>
+</html>

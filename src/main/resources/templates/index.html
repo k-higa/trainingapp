@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: base_header" />
+
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header th:replace="layout :: header"></header>
+
+    <!-- Menu -->
+    <nav id="menu" th:replace="layout::nav_menu" />
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <section class="tiles">
+                <article class="style1">
+				<span class="image">
+					<img th:src="@{/images/arm_menu.jpg}" alt=""/>
+                 </span>
+                    <a th:href="@{/menu/show}">
+                        <h2>胸</h2>
+                        <div class="content">
+                            <p>胸のトレーニングメニューです。</p>
+                        </div>
+                    </a>
+                </article>
+                <article class="style2">
+				  <span class="image">
+                    <img th:src="@{/images/arm_menu.jpg}" alt=""/>
+				  </span>
+                    <a href="generic.html">
+                        <h2>腕</h2>
+                        <div class="content">
+                            <p>腕のトレーニングメニューです。</p>
+                        </div>
+                    </a>
+                </article>
+            </section>
+        </div>
+    </div>
+
+    <footer th:replace="layout::footer"/>
+</div>
+
+<!-- Scripts -->
+<script th:replace="layout::common_js"></script>
+</body>
+</html>

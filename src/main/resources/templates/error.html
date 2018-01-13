@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: base_header" />
+
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header th:replace="layout :: header"></header>
+
+    <!-- Menu -->
+    <nav id="menu" th:replace="layout::nav_menu" />
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <h2 th:text="${errorMessage}">エラーが発生しました。</h2>
+        </div>
+    </div>
+
+    <footer th:replace="layout::footer"/>
+</div>
+
+<!-- Scripts -->
+<script th:replace="layout::common_js"></script>
+</body>
+</html>

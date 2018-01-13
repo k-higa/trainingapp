@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Training App</title>
+    <script src="assets/js/ie/html5shiv.js"></script>
+    <link rel="stylesheet" th:href="@{/assets/css/main.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/style.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/ie9.css}"/>
+    <link rel="stylesheet" th:href="@{/assets/css/ie8.css}"/>
+</head>
+<body>
+<!-- Header -->
+<header id="header" th:fragment="common_header">
+    <div class="inner">
+        <!-- Logo -->
+        <a href="index_bk.html" class="logo">
+            <span class="symbol">
+                <img src="images/logo.svg" alt=""/>
+            </span>
+            <span class="title">TOP</span>
+        </a>
+
+        <!-- Nav -->
+        <nav>
+            <ul>
+                <li><a href="#menu">Menu</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+
+<!-- Scripts -->
+<script th:src="@{assets/js/jquery.min.js}"></script>
+<script th:src="@{assets/js/skel.min.js}"></script>
+<script th:src="@{assets/js/util.js}"></script>
+<script th:src="@{assets/js/ie/respond.min.js}"></script>
+<script th:src="@{assets/js/main.js}"></script>
+</body>
+</html>

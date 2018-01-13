@@ -1,0 +1,71 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: base_header"/>
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header th:replace="layout :: header"></header>
+
+    <!-- Menu -->
+    <nav id="menu" th:replace="layout::nav_menu"/>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <h1>編集ページ</h1>
+            <span class="image main">
+		    <img th:src="@{/images/arm_menu.jpg}" alt=""/>
+	      </span>
+            <p>このページからトレーニングメニューを編集することが出来ます。</p>
+        </div>
+    </div>
+
+    <section>
+        <h2>トレーニングメニュー</h2>
+        <form th:action="@{/menu/confirm}" th:method="POST">
+            <div class="table-wrapper">
+                <table>
+                    <thead>
+                    <tr>
+                        <th>メニュー名</th>
+                        <th>メモ</th>
+                        <th>セット数</th>
+                        <th>回数</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                      <td><input type="text" value="アームカール"/></td>
+                      <td><input type="text" value="上腕二頭筋を意識"/></td>
+                      <td><input type="text" value="3"/>
+                      </td>
+                      <td><input type="text" value="30.50"/>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td><input type="text" value="アームカール"/></td>
+                      <td><input type="text" value="上腕二頭筋を意識"/></td>
+                      <td><input type="text" value="3"/></td>
+                      <td><input type="text" value="30.50"/>
+                      </td>
+                    </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            <br/>
+            <input type="submit" class="button special fit" value="確定"/>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer th:replace="layout::footer"/>
+</div>
+
+<!-- Scripts -->
+<script th:replace="layout::common_js"></script>
+
+</body>
+</html>

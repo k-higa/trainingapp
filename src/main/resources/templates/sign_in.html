@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: base_header"/>
+
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header th:replace="layout :: header"></header>
+
+    <!-- Menu -->
+    <nav id="menu" th:replace="layout::nav_menu"/>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <th:block th:if="${errors}">
+                <section>
+                    <h3>エラー</h3>
+                    <div class="6u 12u$(medium) form_error">
+                        <ul th:each="error : ${errors}">
+                            <li th:text="${error}"></li>
+                        </ul>
+                    </div>
+                </section>
+                <br/>
+            </th:block>
+
+            <!-- Text -->
+            <form th:action="@{/sign_in_process}" th:method="POST" th:object="${signInForm}">
+                <section>
+                    <h2>ログイン</h2>
+                    <div class="row uniform">
+                        <div class="6u 12u$(xsmall)">
+                            <h4>ユーザID</h4>
+                            <input type="text" name="userId" th:field="*{userId}" />
+                        </div>
+                        <div class="6u 12u$(xsmall)">
+                            <h4>パスワード</h4>
+                            <input type="password" name="password" />
+                        </div>
+                    </div>
+                    <div class="12u$">
+                        <ul class="actions">
+                            <li><input type="submit" value="確定" class="special"/></li>
+                            <li><input type="reset" value="リセット"/></li>
+                        </ul>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+
+    <footer th:replace="layout::footer"/>
+</div>
+
+<!-- Scripts -->
+<script th:replace="layout::common_js"></script>
+</body>
+</html>

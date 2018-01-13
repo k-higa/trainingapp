@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="layout :: base_header"/>
+
+<body>
+<!-- Wrapper -->
+<div id="wrapper">
+
+    <!-- Header -->
+    <header th:replace="layout :: header"></header>
+
+    <!-- Menu -->
+    <nav id="menu" th:replace="layout::nav_menu"/>
+
+    <!-- Main -->
+    <div id="main">
+        <div class="inner">
+            <th:block th:if="${errors}">
+                <section>
+                    <h3>エラー</h3>
+                    <div class="6u 12u$(medium) form_error">
+                        <ul th:each="error : ${errors}">
+                            <li th:text="${error}"></li>
+                        </ul>
+                    </div>
+                </section>
+                <br/>
+            </th:block>
+
+            <!-- Text -->
+            <form th:action="@{/sign_up}" th:method="POST" th:object="${signUpForm}">
+                <section>
+                    <h2>会員登録</h2>
+                    <div class="row uniform">
+                        <div class="6u 12u$(xsmall)">
+                            <h4>ユーザID</h4>
+                            <input type="text" name="userId" th:field="*{userId}" />
+                        </div>
+                        <div class="6u 12u$(xsmall)">
+                            <h4>パスワード</h4>
+                            <input type="password" name="password" />
+                        </div>
+                        <div class="12u$">
+                            <h4>表示名(ニックネームなど)</h4>
+                            <input type="text" name="name" th:field="*{name}" />
+                        </div>
+                        <div class="12u$">
+                            <h4>Email</h4>
+                            <input type="email" name="email" th:field="*{email}" />
+                        </div>
+                        <div class="6u$ 12u$(xsmall)">
+                            <h4>出身地</h4>
+                            <div class="12u$">
+                                <div class="select-wrapper">
+                                    <select name="state" id="demo-category">
+                                        <option value="">- 都道府県 -</option>
+                                        <th:block th:each="state, start : ${states}">
+                                            <option th:value="${state.id}" th:selected="${signUpForm.state == state.id}"
+                                                    th:text="${state.name}">北海道
+                                            </option>
+                                        </th:block>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        <h4>性別</h4>
+                        <div class="6u 12u$(small)">
+                            <input type="radio" id="demo-priority-low" value="0" name="gender" th:checked="${signUpForm.gender == '0'}" />
+                            <label for="demo-priority-low">男</label>
+                        </div>
+                        <div class="6u 12u$(small)">
+                            <input type="radio" id="demo-priority-normal" value="1" name="gender" th:checked="${signUpForm.gender == '1'}" />
+                            <label for="demo-priority-normal">女</label>
+                        </div>
+                        <div class="6u 12u$(small)">
+                            <h4>年齢</h4>
+                            <input type="text" name="age" th:field="*{age}"/>
+                        </div>
+                        <div class="12u$">
+                            <input type="checkbox" id="demo-copy" name="mailMagazine" th:checked="${mailMagazine == on}"/>
+                            <label for="demo-copy">メルマガ配信希望</label>
+                        </div>
+                        <div class="12u$">
+                            <ul class="actions">
+                                <li><input type="submit" value="確定" class="special"/></li>
+                                <li><input type="reset" value="リセット"/></li>
+                            </ul>
+                        </div>
+                    </div>
+                </section>
+            </form>
+        </div>
+    </div>
+
+    <footer th:replace="layout::footer"/>
+</div>
+
+<!-- Scripts -->
+<script th:replace="layout::common_js"></script>
+</body>
+</html>

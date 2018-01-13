@@ -1,0 +1,45 @@
+# local(default)
+spring:
+  profiles:
+    active: local
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/training_app
+    username: training_user
+    password: user_password
+  jpa:
+    database: mysql
+  security:
+    basic:
+      enabled: false
+
+# dev
+----
+spring:
+  profiles:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/training_app
+    username:
+    password:
+  jpa:
+    database: mysql
+security:
+  basic:
+    enabled: false
+
+
+# prd
+----
+spring:
+  profiles:
+  datasource:
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/training_app
+    username:
+    password:
+  jpa:
+    database: mysql
+security:
+  basic:
+    enabled: false
