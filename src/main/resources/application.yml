@@ -1,7 +1,12 @@
-# local(default)
+#default
 spring:
   profiles:
     active: local
+
+# local
+---
+spring:
+  profiles: local
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/training_app
@@ -14,9 +19,9 @@ spring:
       enabled: false
 
 # dev
-----
+---
 spring:
-  profiles:
+  profiles: dev
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/training_app
@@ -30,9 +35,9 @@ security:
 
 
 # prd
-----
+---
 spring:
-  profiles:
+  profiles: prd
   datasource:
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/training_app
